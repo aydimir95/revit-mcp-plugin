@@ -36,7 +36,7 @@ namespace revit_mcp_plugin.Commands.Create
                 // 解析参数
                 data = parameters["data"].ToObject<List<LineBasedComponent>>();
                 if (data == null)
-                    throw new Exception("创建墙操作超时");
+                    throw new Exception("Wall creation operation timed out");
 
                 // 设置墙体参数
                 _handler.SetParameters(data);
@@ -48,12 +48,12 @@ namespace revit_mcp_plugin.Commands.Create
                 }
                 else
                 {
-                    throw new TimeoutException("创建墙操作超时");
+                    throw new TimeoutException("Wall creation operation timed out");
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception($"创建墙失败: {ex.Message}");
+                throw new Exception($"Failed to create wall: {ex.Message}");
             }
         }
     }
